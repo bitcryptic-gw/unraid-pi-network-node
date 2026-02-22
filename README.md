@@ -46,3 +46,4 @@ Note: The stellar-core admin port (11626) is intentionally not mapped in this te
 ## Disclaimer
 
 This is a community-maintained Unraid template and is not affiliated with Pi Core Team.
+“Pi”, “Pi Network”, and the Pi logo are trademarks of Pi Community Company. This project is community-maintained and not affiliated with or endorsed by Pi.
