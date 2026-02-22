@@ -26,13 +26,27 @@ This repo provides:
 
 ## Configuration
 
+Pi Docker image docs: https://hub.docker.com/r/pinetwork/pi-node-docker
+
 ### POSTGRES_PASSWORD (required)
-Database password for the node’s Postgres instance (do not share). [Pi Docker docs]
+Database password for the node’s Postgres instance (do not share). This must be set. Choose your own.
 
-### NODE_PRIVATE_KEY (optional, advanced)
-Existing node private key (secret seed) to reuse an existing node identity. Leave blank for a new node; the container can auto-generate the key if not provided. [Pi Docker docs]
+### NODE_PRIVATE_KEY (optional, advanced: migration only)
+Set this only if you are migrating/re-using an existing node identity.
+Leave it blank for a brand-new node (the container will auto-generate one if not provided).
 
-Important: Do not run two nodes with the same `NODE_PRIVATE_KEY` at the same time.
+Important: Do not run two nodes with the same NODE_PRIVATE_KEY at the same time.
+
+### Back up your node key (recommended for new nodes)
+If you start a new node without setting NODE_PRIVATE_KEY, a key/seed is auto-generated.
+Retrieve it using one of the methods below, back it up somewhere safe and never share it (treat it like a password).
+
+Method 1 (host side, if mainnet.env exists under your persisted data):
+grep -E '^(NODE_SEED|NODE_PRIVATE_KEY)=' /mnt/cache/appdata/pi-node-mainnet/stellar/mainnet.env
+
+Method 2 (inside the container, from stellar-core.cfg):
+docker exec PiNetworkNode sh -lc "grep -E 'NODE_SEED|NODE_PRIVATE_KEY' /opt/stellar/core/etc/stellar-core.cfg"
+
 
 ## Ports
 
