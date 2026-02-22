@@ -1,16 +1,21 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>Pi Network Node</Name>
+
   <Repository>pinetwork/pi-node-docker:organization_mainnet-v1.3-p19.6</Repository>
   <Registry>https://hub.docker.com/r/pinetwork/pi-node-docker</Registry>
-  <Network>bridge</Network>
 
+  <Network>bridge</Network>
   <MyIP></MyIP>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
 
   <Support>https://forums.unraid.net/topic/197354-pi-network-node-docker-unraid-template-mainnet/</Support>
   <Project>https://github.com/bitcryptic-gw/unraid-pi-network-node</Project>
+
+  <WebUI>http://[IP]:[PORT:31401]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/bitcryptic-gw/unraid-pi-network-node/main/PiNetworkNode.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/bitcryptic-gw/unraid-pi-network-node/main/icon.png</Icon>
 
   <Overview>
 Pi Network Node (Docker) template for Unraid.
@@ -30,8 +35,7 @@ Notes:
 - POSTGRES_PASSWORD is required.
 - NODE_PRIVATE_KEY is optional (advanced): leave blank for new nodes; set only if migrating an existing node identity.
 - --mainnet and --enable-auto-migrations are passed as Post Arguments so they are sent to the container (not the docker run CLI).
-</Overview>
-
+  </Overview>
 
   <ExtraParams></ExtraParams>
   <PostArgs>--mainnet --enable-auto-migrations</PostArgs>
