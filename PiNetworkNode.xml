@@ -15,19 +15,23 @@
   <Overview>
 Pi Network Node (Docker) template for Unraid.
 
+Pi Docker image documentation:
+https://hub.docker.com/r/pinetwork/pi-node-docker
+
 Persistent data:
-- Map a host path to /opt/stellar (required). https://hub.docker.com/r/pinetwork/pi-node-docker
+- Map a host path to /opt/stellar (required).
 
 Ports (standard):
 - 31401 -> 8000 (Horizon HTTP)
 - 31402 -> 31402 (stellar-core peer)
-- 31403 -> 1570 (Local history server / webfsd) https://hub.docker.com/r/pinetwork/pi-node-docker
+- 31403 -> 1570 (Local history server / webfsd)
 
 Notes:
 - POSTGRES_PASSWORD is required.
-- NODE_PRIVATE_KEY is optional (advanced): leave blank for new nodes; set only if migrating an existing node identity. https://hub.docker.com/r/pinetwork/pi-node-docker
+- NODE_PRIVATE_KEY is optional (advanced): leave blank for new nodes; set only if migrating an existing node identity.
 - --mainnet and --enable-auto-migrations are passed as Post Arguments so they are sent to the container (not the docker run CLI).
-  </Overview>
+</Overview>
+
 
   <ExtraParams></ExtraParams>
   <PostArgs>--mainnet --enable-auto-migrations</PostArgs>
