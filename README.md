@@ -43,6 +43,8 @@ Only these ports are mapped by this template:
 
 Note: The stellar-core admin port (11626) is intentionally not mapped in this template.
 
+## Support
+https://forums.unraid.net/topic/197354-pi-network-node-docker-unraid-template-mainnet/
 ## Disclaimer
 
 This is a community-maintained Unraid template and is not affiliated with Pi Core Team.
