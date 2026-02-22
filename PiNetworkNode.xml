@@ -25,7 +25,7 @@ Ports (standard):
 
 Notes:
 - POSTGRES_PASSWORD is required.
-- NODE_PRIVATE_KEY is optional (advanced): leave blank for new nodes; set only if migrating an existing node identity. [Pi Docker docs]
+- NODE_PRIVATE_KEY is optional (advanced): leave blank for new nodes; set only if migrating an existing node identity. https://hub.docker.com/r/pinetwork/pi-node-docker
 - --mainnet and --enable-auto-migrations are passed as Post Arguments so they are sent to the container (not the docker run CLI).
   </Overview>
 
