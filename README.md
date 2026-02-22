@@ -8,7 +8,7 @@ This repo provides:
 
 ## What this template does
 
-- Runs the node in persistent mode by mapping a host path to `/opt/stellar` (required) [per Pi’s Docker documentation].
+- Runs the node in persistent mode by mapping a host path to `/opt/stellar` (required) [https://minepi.com/pi-blockchain/pi-node/linux/].
 - Exposes the three standard ports used by the node container:
   - 31401 -> 8000 (Horizon HTTP)
   - 31402 -> 31402 (stellar-core peer)
