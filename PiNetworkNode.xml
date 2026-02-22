@@ -16,12 +16,12 @@
 Pi Network Node (Docker) template for Unraid.
 
 Persistent data:
-- Map a host path to /opt/stellar (required). [Pi Docker docs]
+- Map a host path to /opt/stellar (required). https://hub.docker.com/r/pinetwork/pi-node-docker
 
 Ports (standard):
 - 31401 -> 8000 (Horizon HTTP)
 - 31402 -> 31402 (stellar-core peer)
-- 31403 -> 1570 (Local history server / webfsd) [Pi Docker docs]
+- 31403 -> 1570 (Local history server / webfsd) https://hub.docker.com/r/pinetwork/pi-node-docker
 
 Notes:
 - POSTGRES_PASSWORD is required.
