@@ -8,11 +8,11 @@ This repo provides:
 
 ## What this template does
 
-- Runs the node in persistent mode by mapping a host path to `/opt/stellar` (required) [https://minepi.com/pi-blockchain/pi-node/linux/].
+- Runs the node in persistent mode by mapping a host path to `/opt/stellar` (required) https://hub.docker.com/r/pinetwork/pi-node-docker
 - Exposes the three standard ports used by the node container:
   - 31401 -> 8000 (Horizon HTTP)
   - 31402 -> 31402 (stellar-core peer)
-  - 31403 -> 1570 (Local history server / webfsd) [https://minepi.com/pi-blockchain/pi-node/linux/].
+  - 31403 -> 1570 (Local history server / webfsd) https://hub.docker.com/r/pinetwork/pi-node-docker
 - Uses container runtime arguments (`--mainnet --enable-auto-migrations`) as *Post Arguments* (so they are passed after the image name), which is required for correct Docker argument ordering.
 
 ## Quick start (Unraid)
