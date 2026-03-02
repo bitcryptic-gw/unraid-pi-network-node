@@ -2,11 +2,11 @@
 <Container version="2">
   <Name>Pi Network Node</Name>
 
-  <Repository>pinetwork/pi-node-docker:organization_mainnet-v1.3-p19.6</Repository>
+  <Repository>pinetwork/pi-node-docker:organization_mainnet-v1.0-p19.9</Repository>
   <Registry>https://hub.docker.com/r/pinetwork/pi-node-docker</Registry>
   <Beta>false</Beta>
   <Category>Crypto: Network:Other</Category>
-  <Date>2026-02-22</Date>
+  <Date>2026-03-03</Date>
 
 
   <Network>bridge</Network>
