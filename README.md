@@ -3,7 +3,7 @@
 Unraid Community Applications (CA) template for running the official Pi Network Node Docker image on Unraid (mainnet).
 
 This repo provides:
-- An Unraid Docker template XML for `pinetwork/pi-node-docker:organization_mainnet-v1.3-p19.6`
+- An Unraid Docker template XML for `pinetwork/pi-node-docker:organization_mainnet-v1.0-p19.9`
 - Basic setup notes and common troubleshooting tips
 
 ## What this template does
