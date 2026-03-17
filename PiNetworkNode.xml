@@ -2,7 +2,7 @@
 <Container version="2">
   <Name>Pi Network Node</Name>
 
-  <Repository>pinetwork/pi-node-docker:organization_mainnet-v1.0-p19.9</Repository>
+  <Repository>pinetwork/pi-node-docker:organization_mainnet-v1.0-p20.2</Repository>
   <Registry>https://hub.docker.com/r/pinetwork/pi-node-docker</Registry>
   <Beta>false</Beta>
   <Category>Crypto: Network:Other</Category>
