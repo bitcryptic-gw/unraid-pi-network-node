@@ -24,6 +24,12 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Extract version from Dockerfile
+        id: version
+        run: |
+          VERSION=$(grep -oP 'p\K[\d.]+' Dockerfile | tail -1)
+          echo "version=v${VERSION}" >> $GITHUB_OUTPUT
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
@@ -31,5 +37,5 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: |
-            bitcryptic/pi-network-node:v22.1
+            bitcryptic/pi-network-node:${{ steps.version.outputs.version }}
             bitcryptic/pi-network-node:latest
