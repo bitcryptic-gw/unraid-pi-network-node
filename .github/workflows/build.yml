@@ -31,5 +31,5 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: |
-            bitcryptic/pi-network-node:v21.2
+            bitcryptic/pi-network-node:v22.1
             bitcryptic/pi-network-node:latest
