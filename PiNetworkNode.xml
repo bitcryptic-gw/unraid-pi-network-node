@@ -1,6 +1,6 @@
 <Container version="2">
 <Name>Pi Network Node</Name>
-<Repository>bitcryptic/pi-network-node:v22.1</Repository>
+<Repository>bitcryptic/pi-network-node:latest</Repository>
 <Registry>
 https://hub.docker.com/r/bitcryptic/pi-network-node
 </Registry>
