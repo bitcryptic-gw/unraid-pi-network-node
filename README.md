@@ -3,7 +3,7 @@
 Unraid Community Applications (CA) template for running the Pi Network Node on Unraid (mainnet), via the BitCryptic wrapper image with performance tuning baked in.
 
 This repo provides:
-- An Unraid Docker template XML for `bitcryptic/pi-network-node:v22.1` (wraps `pinetwork/pi-node-docker:organization-mainnet-v1.0-p22.1`)
+- An Unraid Docker template XML for `bitcryptic/pi-network-node:v23.0.1` (wraps `pinetwork/pi-node-docker:organization-mainnet-v1.0-p23.0.1`)
 - Basic setup notes and common troubleshooting tips
 
 ## What this template does
