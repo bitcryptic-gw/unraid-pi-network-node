@@ -6,7 +6,7 @@ https://hub.docker.com/r/bitcryptic/pi-network-node
 </Registry>
 <Beta>false</Beta>
 <Category>Crypto: Network:Other</Category>
-<Date>2026-04-17</Date>
+<Date>2026-05-11</Date>
 <Network>bridge</Network>
 <MyIP/>
 <Shell>sh</Shell>
