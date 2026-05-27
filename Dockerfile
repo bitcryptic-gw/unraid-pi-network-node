@@ -1,4 +1,4 @@
-FROM pinetwork/pi-node-docker:organization-mainnet-v1.0-p23.0.1
+FROM pinetwork/pi-node-docker:v1.0-p24.1.0
 
 # Performance tuning for horizon — significantly reduces CPU load on the host.
 # INGEST_DISABLE_STATE_VERIFICATION: disables periodic full ledger state scans (main win).
