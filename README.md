@@ -1,7 +1,7 @@
 # Pi Network Node (Unraid Template)
 Unraid Community Applications (CA) template for running the Pi Network Node on Unraid (mainnet), via the BitCryptic wrapper image with performance tuning baked in.
 This repo provides:
-- An Unraid Docker template XML for `bitcryptic/pi-network-node:v26.1.0` (wraps `pinetwork/pi-node-docker:organization-mainnet-v1.0-p26.1.0`)
+- An Unraid Docker template XML for `bitcryptic/pi-network-node:v27.1.0` (wraps `pinetwork/pi-node-docker:organization-mainnet-v1.0-p27.1.0`)
 - Basic setup notes and common troubleshooting tips
 ## What this template does
 - Runs the node in persistent mode by mapping a host path to `/opt/stellar` (required) https://hub.docker.com/r/pinetwork/pi-node-docker
