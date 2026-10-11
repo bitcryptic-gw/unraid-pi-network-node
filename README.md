@@ -10,10 +10,38 @@ This repo provides:
   - 31402 -> 31402 (stellar-core peer)
   - 31403 -> 1570 (Local history server / webfsd) https://hub.docker.com/r/pinetwork/pi-node-docker
 - Uses container runtime arguments (`--mainnet --enable-auto-migrations`) as *Post Arguments* (so they are passed after the image name), which is required for correct Docker argument ordering.
-- Applies performance tuning ENV vars out of the box:
+- Applies horizon performance tuning out of the box:
   - `INGEST_DISABLE_STATE_VERIFICATION=true` — disables periodic full ledger state scans (main CPU reduction)
-  - `PARALLEL_JOB_SIZE=1` — reduces horizon ingestion worker parallelism
-  - `HISTORY_RETENTION_COUNT=1000000` — retains ~8 weeks of ledger history instead of all history since genesis
+  - `HISTORY_RETENTION_COUNT=125000` — prunes horizon's history tables to the most recent 125000 ledgers (~7 days at ~5s per ledger) instead of retaining all history since genesis
+
+## Where the effective tuning values actually come from
+
+Horizon is launched by `/opt/stellar/horizon/bin/horizon`, which does:
+
+```
+source /opt/stellar/horizon/etc/horizon.env
+exec /usr/bin/stellar-horizon $@
+```
+
+Because that `source` runs after the container environment exists, **the values in the persisted appdata `horizon.env` win over the image's `ENV`**. On a fresh install this image seeds that file with `HISTORY_RETENTION_COUNT=125000`; an existing appdata directory keeps whatever it already contains, because this image never rewrites it.
+
+To check the effective values on a running node:
+
+1. Read the file horizon actually sources:
+
+```
+docker exec PiNetworkNode cat /opt/stellar/horizon/etc/horizon.env
+```
+
+   On the host that is `<appdata>/horizon/etc/horizon.env`. It contains an earlier stock line `export HISTORY_RETENTION_COUNT=0` near the top and the tuning block at the end — **the last matching line in the file wins**.
+
+2. Confirm it at runtime from Horizon's root endpoint — the retained window is `history_latest_ledger - history_elder_ledger`, which should settle at about 125000:
+
+```
+docker exec PiNetworkNode curl -s http://localhost:8000/ | grep -E 'history_(latest|elder)_ledger'
+```
+
+   A much larger gap just means the reaper has not caught up yet. Horizon removes about 50,000 ledgers of history per reap pass, one pass per ~720 ledgers ingested (roughly hourly), so after a retention change allow several hours for the gap to close.
 ## Quick start (Unraid)
 1. Add the template XML to your Unraid flash drive templates folder (or install via CA once published).
 2. Create/choose a persistent appdata path for `/opt/stellar` (example):
