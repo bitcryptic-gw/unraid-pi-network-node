@@ -41,7 +41,7 @@ docker exec PiNetworkNode cat /opt/stellar/horizon/etc/horizon.env
 docker exec PiNetworkNode curl -s http://localhost:8000/ | grep -E 'history_(latest|elder)_ledger'
 ```
 
-   A much larger gap just means the reaper has not caught up yet. Horizon removes about 50,000 ledgers of history per reap pass, one pass per ~720 ledgers ingested (roughly hourly), so after a retention change allow several hours for the gap to close.
+   A much larger gap just means the reaper has not caught up yet. The reaper starts within about an hour of a retention change (it triggers when the ingested ledger count is a multiple of 720) and then removes the whole excess in **one continuous run** — 50,000 ledgers per batch, with a one-second pause between batches. That is sustained heavy disk I/O, so make a retention change at a quiet time (an 875,000-ledger backlog took about 23 minutes to clear). Note also that these deletes free space *inside* Postgres for reuse but do not shrink the files on disk: only a `VACUUM FULL` returns that space to the filesystem.
 ## Quick start (Unraid)
 1. Add the template XML to your Unraid flash drive templates folder (or install via CA once published).
 2. Create/choose a persistent appdata path for `/opt/stellar` (example):
